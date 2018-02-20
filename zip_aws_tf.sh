@@ -21,3 +21,4 @@ cp -r . ../site-packages-backup
 pushd $VIRTUAL_ENV/lib/python2.7/site-packages/
 zip -r9q ~/aws_archive.zip * --exclude \*.pyc
 popd
+#
