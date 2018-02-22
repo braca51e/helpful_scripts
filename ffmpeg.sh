@@ -31,3 +31,6 @@ ffmpeg -f avfoundation -video_size 1280x720 -framerate 30 -i "0" -vframes 1 live
 
 ######Record video webcam######
 ffmpeg -f v4l2 -r 25 -s 640x480 -i /dev/video0 out.avi
+
+######Change framerate######
+ffmpeg -y -i video.mp4 -r 15 -s 1280x958 -c:v libx264 -b:v 3M -strict -2 -movflags faststart out.mp4
