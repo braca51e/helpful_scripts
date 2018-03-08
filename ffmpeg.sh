@@ -34,3 +34,6 @@ ffmpeg -f v4l2 -r 25 -s 640x480 -i /dev/video0 out.avi
 
 ######Change framerate######
 ffmpeg -y -i video.mp4 -r 15 -s 1280x958 -c:v libx264 -b:v 3M -strict -2 -movflags faststart out.mp4
+
+######Record on rpi######
+ffmpeg -f video4linux2 -input_format h264 -video_size 1280x720 -framerate 24 -i /dev/video0 -vcodec copy -an -to 00:00:05 test.mp4
