@@ -21,3 +21,16 @@ conn.request("POST", "/v1/detections?type=face,person&faceOption=landmark,gender
 response = conn.getresponse()
 result = response.read()
 print "Detection Results = " + str(result)
+
+#Create json
+image_data = base64.b64encode(open("test_2.jpg").read())
+params = {"image":image_data}
+with open("image_2.json", "w") as f:
+    json.dump(params, f)
+
+#Read from json
+with open("image_2.json", "r") as f:
+    data = json.load(f)
+image = Image.open(BytesIO(base64.b64decode(data["image"])))
+image = ImageOps.autocontrast(image)
+image.save("tmp.jpg", "JPEG")
