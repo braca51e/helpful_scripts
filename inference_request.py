@@ -34,3 +34,20 @@ with open("image_2.json", "r") as f:
 image = Image.open(BytesIO(base64.b64decode(data["image"])))
 image = ImageOps.autocontrast(image)
 image.save("tmp.jpg", "JPEG")
+
+#Another image way
+img = Image.open("image3.jpg")
+#img = img.resize((299, 299), Image.ANTIALIAS)
+#img.save("./image3.jpg", "JPEG")
+img_enc = base64.b64encode(img.tobytes())
+params.update({"image1":img_enc})
+
+with open("encode_json.json", "w") as f:
+    f.write(json.dumps(params, ensure_ascii=True))
+
+json_data = open("encode_json.json").read()
+data = json.loads(json_data)
+
+for image_name in data:
+    image = Image.frombytes('RGB', (299, 299), base64.b64decode(data[image_name]))
+    img.save("./image3recovered.jpg", "JPEG")
