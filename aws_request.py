@@ -16,10 +16,6 @@ obj = bucket.Object('test_1.jpg')
 tmp = tempfile.NamedTemporaryFile()
 
 with open(tmp.name, 'wb') as f:
-    #obj.download_fileobj(f)
-    #img = mpimg.imread(tmp.name)
-    #print("puto!", img.shape)
-    #img = Image.fromarray(img)
     img = Image.open(BytesIO(obj.get()['Body'].read()))
     img = img.resize((299, 299), Image.ANTIALIAS)
     print(type(img.tobytes()))
