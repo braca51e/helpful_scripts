@@ -1,6 +1,6 @@
 #Call endpoint sagemaker 
 data = open("encode_json.json").read()
-data = json.loads(data, object)
+data = json.loads(data)
 data = json.dumps(data)
 response = client.invoke_endpoint(EndpointName='', Body=data, ContentType='application/json')
 
