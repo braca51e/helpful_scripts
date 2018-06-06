@@ -6,7 +6,6 @@ def add_margin_bbox(bbox, img_size, margin_percent_x=0.10, margin_percent_y=0.05
     bbox[2] = int(np.minimum(bbox[2]+margin_x, img_size[1]))
     bbox[3] = int(np.minimum(bbox[3]+margin_y, img_size[0]))
 
-    
-    def rectContains(bbox, point):
+def rectContains(bbox, point):
     logic = bbox[0] < point[0] < bbox[2] and bbox[1] < point[1] < bbox[2]
     return logic
