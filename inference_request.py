@@ -40,6 +40,8 @@ img = Image.open("image3.jpg")
 #img = img.resize((299, 299), Image.ANTIALIAS)
 #img.save("./image3.jpg", "JPEG")
 img_enc = base64.b64encode(img.tobytes())
+#Works on python3
+image_data = base64.encodestring(image_data.tobytes()).decode('ascii')
 params.update({"image1":img_enc})
 
 with open("encode_json.json", "w") as f:
