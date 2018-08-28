@@ -1,7 +1,7 @@
 ######Record n min segments from online camera######
 #!/bin/bash
 
-CAM="rtsp://admin:infolob@172.16.0.6/live"
+CAM="rtsp://usr:domain@172.16.0.6/live"
 VIDLOC=/home/luis/Documents/ffmpeg/to_pro
 FPS=15
 DURATION=00:05:00
