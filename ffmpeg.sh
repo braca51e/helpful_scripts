@@ -2,7 +2,7 @@
 #!/bin/bash
 
 CAM="rtsp://usr:domain@172.16.0.6/live"
-VIDLOC=/home/luis/Documents/ffmpeg/to_pro
+VIDLOC=/path_to/ffmpeg/to_pro
 FPS=15
 DURATION=00:05:00
 
