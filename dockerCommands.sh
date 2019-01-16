@@ -25,3 +25,7 @@ nvidia-docker run -v $(pwd)/test_dir:/opt/ml -p 8080:8080 --rm mickey_band serve
 
 #Remove <none> images dangling 
 nvidia-docker images -qf dangling=true | xargs --no-run-if-empty nvidia-docker rmi
+
+#One liner to stop / remove all of Docker containers:
+nvidia-docker stop $(nvidia-docker ps -a -q)
+nvidia-docker rm $(nvidia-docker ps -a -q)
