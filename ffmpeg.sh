@@ -42,3 +42,6 @@ ffmpeg -f video4linux2 -input_format h264 -video_size 1280x720 -framerate 24 -i 
 
 #####Extract image frames from video#####
 ffmpeg -i "%1" frames/out-%03d.jpg
+
+#raspberry pi command rtsp stream
+raspivid -o - -t 0 -w 960 -h 540 | cvlc -vvv stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8554/}' :demux=h264
