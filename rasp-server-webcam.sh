@@ -58,6 +58,7 @@ ffserver -d -f ffserver.conf
 ######################################################################
 #ffmpeg to open the built in camera and send a live feed to ffserver
 ffmpeg -f avfoundation -framerate 30 -video_size 1280x720 -i "0" http://localhost:8000/webcam.ffm
+ffmpeg -f video4linux2 -framerate 30 -video_size 1280x720 -i "0" http://localhost:8000/webcam.ffm
 #####################################################################
 #watch on vlc
 rtsp://127.0.0.1:8001/webcam.mp4
