@@ -11,5 +11,14 @@ RUN apt-get update && apt-get install -y \
 #Install opencv
 #opencv version 3.3 because 3.4 has falty dependencies
 RUN pip install opencv-python==3.3.0.9 opencv-contrib-python==3.3.0.9
+#End Install opencv
 
+#Deps opencv
+RUN apt-get -y update && apt-get install -y \
+    libglib2.0-0 libsm6 libxrender1 libfontconfig1 \
+    libxext6 \
+    && rm -rf /var/lib/apt/lists/*
+
+#Install opencv
+RUN pip install opencv-python==3.4.5.20 opencv-contrib-python==3.4.5.20
 #End Install opencv
