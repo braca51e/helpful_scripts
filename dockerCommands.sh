@@ -24,7 +24,7 @@ nvidia-docker cp <containerId>:/file/path/within/container /host/path/target
 nvidia-docker run -v $(pwd)/test_dir:/opt/ml -p 8080:8080 --rm image_name serve
 
 #Remove <none> images dangling 
-nvidia-docker images -qf dangling=true | xargs --no-run-if-empty nvidia-docker rmi
+nvidia-docker images -qf dangling=true | xargs --no-run-if-empty nvidia-docker rmi -f
 
 #One liner to stop / remove all of Docker containers:
 nvidia-docker stop $(nvidia-docker ps -a -q)
