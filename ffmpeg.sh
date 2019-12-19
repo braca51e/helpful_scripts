@@ -26,6 +26,7 @@ ffmpeg -ss 00:00:05 -i videp.mp4 -t 00:01:30 -vcodec copy out.mp4
 ffmpeg -r 14 -f image2 -s 1920x1080 -start_number 1 -i detect_%03d.jpg -vframes 198 -vcodec libx264 -crf 20  -pix_fmt yuv420p ../out.mp4
 
 ######Create video from images######
+CONCAT=$(echo $(ls *.png | sort -n -t _ -k 2) | sed -e "s/ /|/g")
 ffmpeg -pattern_type glob -i '*.jpg' -c:v libx264 -r 15 -pix_fmt yuv420p out.mp4
 
 ######Take a shot######
