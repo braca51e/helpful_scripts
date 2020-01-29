@@ -48,7 +48,7 @@ ffmpeg -i "%1" frames/out-%03d.jpg
 raspivid -o - -t 0 -w 960 -h 540 | cvlc -vvv stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8554/}' :demux=h264
 
 #Create chucks video only
-ffmpeg -i input.mp4 -map 0 -c copy -f segment -segment_time 1800 output_%03d.mp4
+ffmpeg -i input.mp4 -c copy -map 0 -f segment -segment_time 600 -reset_timestamps 1 out_%03d.mp4
 
 #Create chucks 2
-ffmpeg -i input.mp4 -c copy -f segment -segment_time 1800 output_%03d.mp4
+ffmpeg -i input.mp4 -c copy -f segment -segment_time 1800 -reset_timestamps 1 output_%03d.mp4
